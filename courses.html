@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Directory - Institute of Islamic Education</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <div id="header-mount"></div>
+
+  <main class="flex-grow max-w-7xl mx-auto px-6 py-12 w-full">
+    <!-- Header Title -->
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-xs font-bold text-[#5CACC4] uppercase tracking-wider">Academic Offerings</span>
+      <h1 class="text-3xl md:text-4xl font-extrabold text-[#2C5D6C] mt-1">Available Courses & Diplomas</h1>
+      <p class="text-xs md:text-sm text-gray-600 mt-2">Browse our structured educational programs designed specifically for female students.</p>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="flex flex-wrap justify-center gap-2 mb-10" id="filterContainer">
+      <button onclick="filterCourses('All')" class="filter-btn active bg-[#2C5D6C] text-white text-xs font-bold px-5 py-2.5 rounded-full transition shadow-sm">All Courses</button>
+      <button onclick="filterCourses('Diplomas')" class="filter-btn bg-white text-gray-600 hover:bg-gray-100 text-xs font-bold px-5 py-2.5 rounded-full transition shadow-sm">Diplomas</button>
+      <button onclick="filterCourses('Languages')" class="filter-btn bg-white text-gray-600 hover:bg-gray-100 text-xs font-bold px-5 py-2.5 rounded-full transition shadow-sm">Languages</button>
+      <button onclick="filterCourses('Short Courses')" class="filter-btn bg-white text-gray-600 hover:bg-gray-100 text-xs font-bold px-5 py-2.5 rounded-full transition shadow-sm">Short Courses</button>
+    </div>
+
+    <!-- Courses Grid -->
+    <div id="coursesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      <!-- Cards rendered dynamically -->
+    </div>
+
+    <!-- Bottom Page CTA Banner -->
+    <div class="bg-gradient-to-r from-[#2C5D6C] to-[#1C2A33] rounded-3xl p-10 text-center text-white shadow-xl relative overflow-hidden">
+      <div class="relative z-10 max-w-xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-bold mb-3">Begin Your Academic Journey</h2>
+        <p class="text-xs md:text-sm text-gray-300 mb-6">Applications for the upcoming semester are currently open. Reserve your seat today.</p>
+        <button onclick="openApplyModal()" class="bg-[#5CACC4] hover:bg-cyan-600 text-white font-bold px-10 py-3.5 rounded-full text-sm transition shadow-lg hover:scale-105">
+          Open General Application Form
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-mount"></div>
+  <div id="modal-mount"></div>
+
+  <script src="js/coursesData.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    function renderCourses(data) {
+      const grid = document.getElementById("coursesGrid");
+      if (!grid) return;
+      grid.innerHTML = data.map(c => `
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 card-hover flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <span class="text-xs font-black text-[#5CACC4] tracking-wider uppercase">${c.courseID}</span>
+              <span class="text-xs bg-[#E6F4F8] text-[#2C5D6C] font-bold px-3 py-1 rounded-full">${c.mode}</span>
+            </div>
+            <h3 class="font-extrabold text-lg text-[#1C2A33] mb-2 leading-snug">${c.name}</h3>
+            <p class="text-xs text-gray-500 leading-relaxed mb-6">${c.description}</p>
+          </div>
+          <div>
+            <div class="border-t border-gray-100 pt-4 mb-5 space-y-1 text-xs text-gray-600">
+              <div class="flex justify-between">
+                <span class="text-gray-400">Duration:</span>
+                <span class="font-semibold">${c.duration}</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-gray-400">Schedule:</span>
+                <span class="font-semibold">${c.time}</span>
+              </div>
+            </div>
+            <button onclick="openApplyModal('${c.courseID}')" class="w-full bg-[#2C5D6C] hover:bg-slate-800 text-white font-bold py-3 rounded-xl text-xs transition shadow-sm">
+              Apply For This Course
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterCourses(category) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('bg-[#2C5D6C]', 'text-white');
+        btn.classList.add('bg-white', 'text-gray-600');
+        if (btn.textContent.trim() === category || (category === 'All' && btn.textContent.trim() === 'All Courses')) {
+          btn.classList.add('bg-[#2C5D6C]', 'text-white');
+          btn.classList.remove('bg-white', 'text-gray-600');
+        }
+      });
+
+      if (category === 'All') {
+        renderCourses(coursesData);
+      } else {
+        const filtered = coursesData.filter(c => c.category === category);
+        renderCourses(filtered);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => renderCourses(coursesData));
+  </script>
+</body>
+</html>

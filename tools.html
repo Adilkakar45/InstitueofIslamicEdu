@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Islamic Utilities & Tools - Institute of Islamic Education</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <div id="header-mount"></div>
+
+  <main class="flex-grow max-w-7xl mx-auto px-6 py-12 w-full space-y-12">
+    <!-- Header Title -->
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="text-xs font-bold text-[#5CACC4] uppercase tracking-wider">Interactive Utilities</span>
+      <h1 class="text-3xl md:text-4xl font-extrabold text-[#2C5D6C] mt-1">Daily Islamic Life Tools</h1>
+      <p class="text-xs md:text-sm text-gray-600 mt-2">Free, privacy-focused interactive tools to assist your daily worship and study.</p>
+    </div>
+
+    <!-- Tools Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- TOOL 1: Digital Tasbeeh Counter -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between text-center card-hover">
+        <div>
+          <span class="text-[10px] font-black text-[#5CACC4] uppercase tracking-widest">Tool 01</span>
+          <h2 class="text-lg font-bold text-[#2C5D6C] mb-2">Digital Tasbeeh Counter</h2>
+          <div class="my-4 bg-[#E6F4F8] p-6 rounded-2xl border border-[#5CACC4]/20">
+            <span id="tasbeehCount" class="text-5xl font-black text-[#2C5D6C]">0</span>
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="incrementTasbeeh()" class="flex-1 bg-[#2C5D6C] hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition shadow-md text-sm">
+            Count (+1)
+          </button>
+          <button onclick="resetTasbeeh()" class="bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold px-4 py-3 rounded-xl transition text-xs">
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- TOOL 2: Live Prayer Times -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between card-hover">
+        <div>
+          <span class="text-[10px] font-black text-[#5CACC4] uppercase tracking-widest">Tool 02</span>
+          <h2 class="text-lg font-bold text-[#2C5D6C] mb-3">Live Prayer Timings</h2>
+          <div class="flex gap-2 mb-3">
+            <input type="text" id="cityInput" placeholder="Enter City (e.g., Lahore)" class="flex-1 p-2 text-xs bg-gray-50 border rounded-lg outline-none focus:ring-1 focus:ring-[#2C5D6C]">
+            <button onclick="fetchPrayerTimes()" class="bg-[#2C5D6C] text-white text-xs px-3 rounded-lg font-bold hover:bg-slate-800">Fetch</button>
+          </div>
+          <div id="prayerTimesContainer" class="space-y-1.5 text-xs text-gray-600">
+            <p class="text-center text-gray-400 py-4">Enter a city to get precise prayer times.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOOL 3: Zakat Calculator -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between card-hover">
+        <div>
+          <span class="text-[10px] font-black text-[#5CACC4] uppercase tracking-widest">Tool 03</span>
+          <h2 class="text-lg font-bold text-[#2C5D6C] mb-3">Zakat Calculator (2.5%)</h2>
+          <div class="space-y-2 text-xs">
+            <input type="number" id="zakatCash" placeholder="Cash & Bank Balance (PKR)" class="w-full p-2 bg-gray-50 border rounded-lg outline-none">
+            <input type="number" id="zakatGold" placeholder="Gold & Silver Value (PKR)" class="w-full p-2 bg-gray-50 border rounded-lg outline-none">
+            <input type="number" id="zakatDebts" placeholder="Short-term Debts / Liabilities (PKR)" class="w-full p-2 bg-gray-50 border rounded-lg outline-none">
+          </div>
+          <div class="mt-3 p-3 bg-[#E6F4F8] rounded-xl text-center">
+            <span class="text-[10px] font-bold text-gray-500 block">Estimated Payable Zakat</span>
+            <span id="zakatResult" class="text-lg font-extrabold text-[#2C5D6C]">PKR 0</span>
+          </div>
+        </div>
+        <button onclick="calculateZakat()" class="w-full bg-[#2C5D6C] hover:bg-slate-800 text-white font-bold py-2.5 rounded-xl transition text-xs mt-3">
+          Calculate Zakat
+        </button>
+      </div>
+
+      <!-- TOOL 4: Daily Quran Verse Generator -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between card-hover">
+        <div>
+          <span class="text-[10px] font-black text-[#5CACC4] uppercase tracking-widest">Tool 04</span>
+          <h2 class="text-lg font-bold text-[#2C5D6C] mb-3">Quranic Reflection</h2>
+          <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 text-center min-h-[110px] flex flex-col justify-center">
+            <p id="verseArabic" class="text-base font-bold text-[#2C5D6C] mb-1">إِنَّ مَعَ الْعُسْرِ يُسْرًا</p>
+            <p id="verseEnglish" class="text-xs text-gray-600 italic">"Indeed, with hardship will come ease." [94:6]</p>
+          </div>
+        </div>
+        <button onclick="getRandomVerse()" class="w-full bg-[#2C5D6C] hover:bg-slate-800 text-white font-bold py-2.5 rounded-xl transition text-xs mt-3">
+          New Reflection Verse
+        </button>
+      </div>
+
+      <!-- TOOL 5: Fasting Tracker (Sawm) -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between card-hover">
+        <div>
+          <span class="text-[10px] font-black text-[#5CACC4] uppercase tracking-widest">Tool 05</span>
+          <h2 class="text-lg font-bold text-[#2C5D6C] mb-2">Fasting & Voluntary Sawm Log</h2>
+          <p class="text-xs text-gray-500 mb-3">Track your completed voluntary or Qada fasts.</p>
+          <div class="bg-[#E6F4F8] p-4 rounded-xl text-center">
+            <span id="fastCount" class="text-3xl font-black text-[#2C5D6C]">0</span>
+            <span class="text-xs text-gray-500 block">Fasts Logged This Month</span>
+          </div>
+        </div>
+        <div class="flex gap-2 mt-3">
+          <button onclick="logFast()" class="flex-1 bg-[#2C5D6C] hover:bg-slate-800 text-white font-bold py-2.5 rounded-xl transition text-xs">
+            + Log Fast
+          </button>
+          <button onclick="resetFasts()" class="bg-gray-100 text-gray-600 font-bold px-3 py-2.5 rounded-xl transition text-xs">
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- TOOL 6: Islamic Hijri Date & Events -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between card-hover">
+        <div>
+          <span class="text-[10px] font-black text-[#5CACC4] uppercase tracking-widest">Tool 06</span>
+          <h2 class="text-lg font-bold text-[#2C5D6C] mb-3">Today's Date & Calendar</h2>
+          <div class="bg-gray-50 p-4 rounded-xl border border-gray-100 space-y-2 text-center">
+            <p id="gregorianDate" class="text-xs text-gray-500 font-medium"></p>
+            <p id="hijriDate" class="text-base font-extrabold text-[#2C5D6C]"></p>
+          </div>
+        </div>
+        <div class="bg-[#E6F4F8] p-3 rounded-xl text-center mt-3">
+          <p class="text-[11px] text-[#2C5D6C] font-semibold">📍 Client-Side Utility (No Server Overhead)</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-mount"></div>
+  <div id="modal-mount"></div>
+
+  <script src="js/coursesData.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    // 1. Tasbeeh Logic
+    let tasbeeh = parseInt(localStorage.getItem('tasbeehCount') || '0');
+    document.getElementById('tasbeehCount').innerText = tasbeeh;
+    function incrementTasbeeh() {
+      tasbeeh++;
+      localStorage.setItem('tasbeehCount', tasbeeh);
+      document.getElementById('tasbeehCount').innerText = tasbeeh;
+    }
+    function resetTasbeeh() {
+      tasbeeh = 0;
+      localStorage.setItem('tasbeehCount', '0');
+      document.getElementById('tasbeehCount').innerText = 0;
+    }
+
+    // 2. Prayer Times Fetcher (Aladhan Free API)
+    async function fetchPrayerTimes() {
+      const city = document.getElementById('cityInput').value || 'Lahore';
+      const container = document.getElementById('prayerTimesContainer');
+      container.innerHTML = `<p class="text-center py-4 text-gray-400">Loading...</p>`;
+      try {
+        const res = await fetch(`https://api.aladhan.com/v1/timingsByCity?city=${city}&country=Pakistan&method=1`);
+        const data = await res.json();
+        const t = data.data.timings;
+        container.innerHTML = `
+          <div class="flex justify-between border-b pb-1"><span>Fajr:</span><strong>${t.Fajr}</strong></div>
+          <div class="flex justify-between border-b pb-1"><span>Dhuhr:</span><strong>${t.Dhuhr}</strong></div>
+          <div class="flex justify-between border-b pb-1"><span>Asr:</span><strong>${t.Asr}</strong></div>
+          <div class="flex justify-between border-b pb-1"><span>Maghrib:</span><strong>${t.Maghrib}</strong></div>
+          <div class="flex justify-between border-b pb-1"><span>Isha:</span><strong>${t.Isha}</strong></div>
+        `;
+      } catch (e) {
+        container.innerHTML = `<p class="text-center text-red-500 py-2">Unable to fetch times.</p>`;
+      }
+    }
+
+    // 3. Zakat Calculator
+    function calculateZakat() {
+      const cash = parseFloat(document.getElementById('zakatCash').value || 0);
+      const gold = parseFloat(document.getElementById('zakatGold').value || 0);
+      const debts = parseFloat(document.getElementById('zakatDebts').value || 0);
+      const netAssets = (cash + gold) - debts;
+      const zakat = netAssets > 0 ? netAssets * 0.025 : 0;
+      document.getElementById('zakatResult').innerText = `PKR ${zakat.toLocaleString()}`;
+    }
+
+    // 4. Quran Verses Generator
+    const verses = [
+      { ar: "إِنَّ مَعَ الْعُسْرِ يُسْرًا", en: '"Indeed, with hardship will come ease." [94:6]' },
+      { ar: "وَقُل رَّبِّ زِدْنِي عِلْمًا", en: '"And say, My Lord, increase me in knowledge." [20:114]' },
+      { ar: "فَاذْكُرُونِي أَذْكُرْكُمْ", en: '"So remember Me; I will remember you." [2:152]' },
+      { ar: "وَهُوَ مَعَكُمْ أَيْنَ مَا كُنتُمْ", en: '"And He is with you wherever you are." [57:4]' }
+    ];
+    function getRandomVerse() {
+      const v = verses[Math.floor(Math.random() * verses.length)];
+      document.getElementById('verseArabic').innerText = v.ar;
+      document.getElementById('verseEnglish').innerText = v.en;
+    }
+
+    // 5. Fasting Tracker
+    let fasts = parseInt(localStorage.getItem('fastCount') || '0');
+    document.getElementById('fastCount').innerText = fasts;
+    function logFast() {
+      fasts++;
+      localStorage.setItem('fastCount', fasts);
+      document.getElementById('fastCount').innerText = fasts;
+    }
+    function resetFasts() {
+      fasts = 0;
+      localStorage.setItem('fastCount', '0');
+      document.getElementById('fastCount').innerText = 0;
+    }
+
+    // 6. Date Conversion
+    document.addEventListener("DOMContentLoaded", () => {
+      const today = new Date();
+      document.getElementById('gregorianDate').innerText = today.toDateString();
+      document.getElementById('hijriDate').innerText = new Intl.DateTimeFormat('en-TN-u-ca-islamic', { day: 'numeric', month: 'long', year: 'numeric' }).format(today);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #E6F4F8;
+  color: #1C2A33;
+}
+
+/* Glassmorphism Header */
+.glass-header {
+  background: rgba(44, 93, 108, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* UI Elevators & Transitions */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(44, 93, 108, 0.1), 0 8px 10px -6px rgba(44, 93, 108, 0.05);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #E6F4F8;
+}
+::-webkit-scrollbar-thumb {
+  background: #2C5D6C;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5CACC4;
+}
