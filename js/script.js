@@ -87,7 +87,7 @@ const footerHTML = `
           <svg class="w-4 h-4 text-[#5CACC4] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.08 4.18 2 2 0 0 1 5.06 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.63 2.63a2 2 0 0 1-.45 2.11L9 9.91a16 16 0 0 0 6.09 6.09l1.45-1.24a2 2 0 0 1 2.11-.45c.85.3 1.73.51 2.63.63A2 2 0 0 1 22 16.92Z"/>
           </svg>
-          <span>Admissions: +92 300 1234567</span>
+          <span>Admissions: +92 336 8148741</span>
         </p>
         <p class="flex items-center gap-2">
           <svg class="w-4 h-4 text-[#5CACC4] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -96,6 +96,10 @@ const footerHTML = `
           </svg>
           <span>Email: admissions@islamicedu-girls.edu.pk</span>
         </p>
+        <a href="https://g.page/r/CV2sEj5gtoEZECE/review" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-3 bg-[#5CACC4] hover:bg-cyan-600 text-white font-bold text-xs px-4 py-2.5 rounded-lg transition-colors shadow-sm">
+          <span aria-hidden="true">⭐</span>
+          <span>Leave Us a Google Review</span>
+        </a>
       </div>
     </div>
   </div>
@@ -127,37 +131,37 @@ const modalHTML = `
     <form id="admissionForm" onsubmit="handleFormSubmit(event)" novalidate class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div>
         <label class="block text-xs font-bold text-gray-700 mb-1">1. Student Full Name *</label>
-        <input type="text" id="field-name" placeholder="e.g. Ayesha Fatima" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
+        <input type="text" id="field-name" name="name" placeholder="e.g. Ayesha Fatima" minlength="3" required autocomplete="name" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
         <span id="err-name" class="text-[11px] text-red-500 font-medium hidden mt-1 block"></span>
       </div>
 
       <div>
         <label class="block text-xs font-bold text-gray-700 mb-1">2. Father / Guardian Name *</label>
-        <input type="text" id="field-guardian" placeholder="Guardian's Name" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
+        <input type="text" id="field-guardian" name="guardian" placeholder="Guardian's Name" minlength="3" required autocomplete="name" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
         <span id="err-guardian" class="text-[11px] text-red-500 font-medium hidden mt-1 block"></span>
       </div>
 
       <div>
         <label class="block text-xs font-bold text-gray-700 mb-1">3. Email Address *</label>
-        <input type="email" id="field-email" placeholder="student@example.com" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
+        <input type="email" id="field-email" name="email" placeholder="student@example.com" required autocomplete="email" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
         <span id="err-email" class="text-[11px] text-red-500 font-medium hidden mt-1 block"></span>
       </div>
 
       <div>
         <label class="block text-xs font-bold text-gray-700 mb-1">4. Phone / WhatsApp *</label>
-        <input type="tel" id="field-phone" placeholder="e.g. 03001234567" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
+        <input type="tel" id="field-phone" name="phone" placeholder="e.g. 03001234567" minlength="10" maxlength="15" pattern="[0-9+\s-]{10,15}" required autocomplete="tel" inputmode="tel" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
         <span id="err-phone" class="text-[11px] text-red-500 font-medium hidden mt-1 block"></span>
       </div>
 
       <div>
         <label class="block text-xs font-bold text-gray-700 mb-1">5. Date of Birth *</label>
-        <input type="date" id="field-dob" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
+        <input type="date" id="field-dob" name="dob" required autocomplete="bday" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
         <span id="err-dob" class="text-[11px] text-red-500 font-medium hidden mt-1 block"></span>
       </div>
 
       <div>
         <label class="block text-xs font-bold text-gray-700 mb-1">6. Highest Qualification *</label>
-        <select id="field-qualification" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
+        <select id="field-qualification" name="qualification" required class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
           <option value="">-- Select Qualification --</option>
           <option value="Matriculation / O-Level">Matriculation / O-Level</option>
           <option value="Intermediate / A-Level">Intermediate / A-Level</option>
@@ -170,19 +174,19 @@ const modalHTML = `
 
       <div>
         <label class="block text-xs font-bold text-gray-700 mb-1">7. City / Region *</label>
-        <input type="text" id="field-city" placeholder="e.g. Lahore, Quetta, Islamabad" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
+        <input type="text" id="field-city" name="city" placeholder="e.g. Lahore, Quetta, Islamabad" required autocomplete="address-level2" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
         <span id="err-city" class="text-[11px] text-red-500 font-medium hidden mt-1 block"></span>
       </div>
 
       <div>
         <label class="block text-xs font-bold text-gray-700 mb-1">8. Residential Address *</label>
-        <input type="text" id="field-address" placeholder="Full street address" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
+        <input type="text" id="field-address" name="address" placeholder="Full street address" minlength="5" required autocomplete="street-address" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
         <span id="err-address" class="text-[11px] text-red-500 font-medium hidden mt-1 block"></span>
       </div>
 
       <div class="md:col-span-2">
         <label class="block text-xs font-bold text-gray-700 mb-1">9. Selected Course *</label>
-        <select id="modalCourseSelect" class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
+        <select id="modalCourseSelect" name="course" required class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition">
           <!-- Populated dynamically -->
         </select>
         <span id="err-course" class="text-[11px] text-red-500 font-medium hidden mt-1 block"></span>
@@ -190,10 +194,10 @@ const modalHTML = `
 
       <div class="md:col-span-2">
         <label class="block text-xs font-bold text-gray-700 mb-1">10. Additional Background & Objectives</label>
-        <textarea id="field-notes" rows="3" placeholder="Briefly state why you wish to join this course..." class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition"></textarea>
+        <textarea id="field-notes" name="notes" rows="3" maxlength="1000" placeholder="Briefly state why you wish to join this course..." class="w-full p-3 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2C5D6C] focus:bg-white outline-none transition"></textarea>
       </div>
 
-      <button type="submit" class="md:col-span-2 bg-[#2C5D6C] hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl mt-2">
+      <button type="submit" id="admissionSubmitButton" class="md:col-span-2 bg-[#2C5D6C] hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl mt-2">
         Submit Application
       </button>
     </form>
@@ -208,8 +212,14 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("modal-mount").innerHTML = modalHTML;
 
   populateModalCourses();
+  setDateOfBirthLimit();
   highlightActiveNav();
 });
+
+function setDateOfBirthLimit() {
+  const dateOfBirth = document.getElementById("field-dob");
+  if (dateOfBirth) dateOfBirth.max = new Date().toISOString().split("T")[0];
+}
 
 function populateModalCourses() {
   const select = document.getElementById("modalCourseSelect");
@@ -293,7 +303,7 @@ function resetAllErrors() {
 }
 
 // Entry Validation Handler
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
   e.preventDefault();
   resetAllErrors();
 
@@ -324,15 +334,16 @@ function handleFormSubmit(e) {
   // 4. Phone Number (Digits only, 10–15 length)
   const phone = document.getElementById("field-phone")?.value.trim();
   const phoneRegex = /^[0-9+\s-]{10,15}$/;
-  if (!phone || !phoneRegex.test(phone)) {
+  if (!phone || !phoneRegex.test(phone) || phone.replace(/\D/g, "").length < 10) {
     showError("field-phone", "err-phone", "Please enter a valid phone number (min 10 digits).");
     isValid = false;
   }
 
   // 5. Date of Birth
   const dob = document.getElementById("field-dob")?.value;
-  if (!dob) {
-    showError("field-dob", "err-dob", "Please select your date of birth.");
+  const selectedDate = dob ? new Date(`${dob}T00:00:00`) : null;
+  if (!dob || Number.isNaN(selectedDate?.getTime()) || selectedDate > new Date()) {
+    showError("field-dob", "err-dob", "Please select a valid date of birth.");
     isValid = false;
   }
 
@@ -374,8 +385,77 @@ function handleFormSubmit(e) {
     return;
   }
 
-  // Success flow
-  alert("Success! Your admission application has been submitted successfully.");
-  closeApplyModal();
-  document.getElementById("admissionForm")?.reset();
+  const notes = document.getElementById("field-notes")?.value.trim() || "None";
+  const form = document.getElementById("admissionForm");
+  const submitButton = e.submitter || document.getElementById("admissionSubmitButton");
+  const globalErr = document.getElementById("formGlobalError");
+  const whatsappMessage = [
+    "*New Admission Application - 2026*",
+    "----------------------------------",
+    `*1. Name:* ${name}`,
+    `*2. Guardian:* ${guardian}`,
+    `*3. Email:* ${email}`,
+    `*4. Phone:* ${phone}`,
+    `*5. DOB:* ${dob}`,
+    `*6. Qualification:* ${qualification}`,
+    `*7. City:* ${city}`,
+    `*8. Address:* ${address}`,
+    `*9. Selected Course:* ${course}`,
+    `*10. Notes:* ${notes}`
+  ].join("\n");
+  const whatsappUrl = `https://wa.me/923368148741?text=${encodeURIComponent(whatsappMessage)}`;
+
+  // Open WhatsApp while still inside the user click, avoiding popup blockers.
+  const whatsappWindow = window.open(whatsappUrl, "_blank", "noopener");
+  if (!whatsappWindow && globalErr) {
+    globalErr.innerText = "WhatsApp was blocked by your browser. Please allow pop-ups and try again.";
+    globalErr.classList.remove("hidden");
+  }
+
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.innerText = "Sending Application...";
+  }
+
+  try {
+    const response = await fetch("https://formsubmit.co/ajax/muhammadsaeedadil@gmail.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        _subject: `New Admission Application: ${name}`,
+        "Student Name": name,
+        "Guardian Name": guardian,
+        "Email": email,
+        "Phone Number": phone,
+        "Date of Birth": dob,
+        "Qualification": qualification,
+        "City": city,
+        "Address": address,
+        "Target Course": course,
+        "Notes": notes
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Email request failed with status ${response.status}`);
+    }
+
+    alert("Your application was emailed successfully and opened in WhatsApp.");
+    form?.reset();
+    closeApplyModal();
+  } catch (error) {
+    console.error("Application email error:", error);
+    if (globalErr) {
+      globalErr.innerText = "WhatsApp was opened, but the email could not be sent. Please try submitting again.";
+      globalErr.classList.remove("hidden");
+    }
+  } finally {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.innerText = "Submit Application";
+    }
+  }
 }
