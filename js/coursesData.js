@@ -28,7 +28,7 @@ const coursesData = [
   },
   {
     courseID: "SC-104",
-    name: "Huroof-Ul-Quran",
+    name: "Huroof-Ul-Quran (Kids)",
     duration: "Self-Paced / Flexible Duration",
     time: "09:00 AM - 12:00 AM, 03:00 PM - 05:00 PM",
     mode: "On Campus",
