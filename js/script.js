@@ -107,7 +107,7 @@ const footerHTML = `
 
   <div class="max-w-7xl mx-auto px-6 border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-4">
     <p>© 2026 Institute of Islamic Education (For Girls). All Rights Reserved.</p>
-    <p>Design and developed by <a href="https://saeed-adil.vercel.app/" target="_blank" rel="noopener noreferrer" class="font-bold hover:text-white transition-colors">Saeed Adil</a></p>
+    <p>Click for Contact: <a href="https://saeed-adil.vercel.app/" target="_blank" rel="noopener noreferrer" class="font-bold hover:text-white transition-colors">Design and developed by Saeed Adil</a></p>
   </div>
 </footer>
 `;
