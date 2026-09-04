@@ -71,6 +71,7 @@ const footerHTML = `
         <li><a href="courses.html" class="hover:text-[#5CACC4] transition">All Courses & Diplomas</a></li>
         <li><a href="tools.html" class="hover:text-[#5CACC4] transition">Daily Islamic Tools</a></li>
         <li><a href="about-contact.html" class="hover:text-[#5CACC4] transition">About Institute & Campus</a></li>
+        <li><a href="assets/terms-and-conditions.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-[#5CACC4] transition">Terms & Privacy</a></li>
       </ul>
     </div>
 
@@ -106,7 +107,7 @@ const footerHTML = `
 
   <div class="max-w-7xl mx-auto px-6 border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-4">
     <p>© 2026 Institute of Islamic Education (For Girls). All Rights Reserved.</p>
-    <p>Designed with Modern Islamic Educational Architecture</p>
+    <p>Design and developed by <a href="https://saeed-adil.vercel.app/" target="_blank" rel="noopener noreferrer" class="font-bold hover:text-white transition-colors">Saeed Adil</a></p>
   </div>
 </footer>
 `;
