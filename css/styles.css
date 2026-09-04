@@ -22,6 +22,51 @@ body {
   box-shadow: 0 20px 25px -5px rgba(44, 93, 108, 0.1), 0 8px 10px -6px rgba(44, 93, 108, 0.05);
 }
 
+/* Premium seasonal course styling */
+.ramzan-filter-btn {
+  background: linear-gradient(135deg, #B3831D, #E0B84F 50%, #8A641C) !important;
+  border: 1px solid #F4D98A;
+  color: #FFFFFF !important;
+  box-shadow: 0 5px 14px rgba(120, 87, 24, 0.2);
+}
+.ramzan-filter-btn:hover {
+  background: linear-gradient(135deg, #8A641C, #C79A3B 50%, #6F4E12) !important;
+  border-color: #FFF1B8;
+  box-shadow: 0 8px 18px rgba(120, 87, 24, 0.3);
+}
+.ramzan-course-card {
+  background: linear-gradient(145deg, #FFFDF6 0%, #F8F1D9 100%);
+  border-color: #D9B65A;
+  box-shadow: 0 10px 24px rgba(120, 87, 24, 0.12);
+}
+.ramzan-course-card:hover {
+  box-shadow: 0 20px 32px rgba(120, 87, 24, 0.2);
+}
+.ramzan-course-id {
+  color: #A87516;
+}
+.ramzan-diamond {
+  width: 34px;
+  height: 34px;
+  margin: -2px auto 14px;
+  display: grid;
+  place-items: center;
+  color: #FFF8E7;
+  background: linear-gradient(135deg, #B3831D, #E0B84F 50%, #8A641C);
+  border: 2px solid #FFF8E7;
+  border-radius: 10px;
+  box-shadow: 0 5px 14px rgba(120, 87, 24, 0.28);
+  font-size: 18px;
+  line-height: 1;
+  transform: rotate(45deg);
+}
+.ramzan-eligibility-link {
+  color: #80601B;
+}
+.ramzan-eligibility-link:hover {
+  color: #B3831D;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

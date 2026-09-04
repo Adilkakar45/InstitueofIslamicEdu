@@ -42,8 +42,9 @@
     <div class="flex flex-wrap justify-center gap-2 mb-10" id="filterContainer">
       <button onclick="filterCourses('All')" class="filter-btn active bg-[#2C5D6C] text-white text-xs font-bold px-5 py-2.5 rounded-full transition shadow-sm">All Courses</button>
       <button onclick="filterCourses('Diplomas')" class="filter-btn bg-white text-gray-600 hover:bg-gray-100 text-xs font-bold px-5 py-2.5 rounded-full transition shadow-sm">Diplomas</button>
-      <button onclick="filterCourses('Languages')" class="filter-btn bg-white text-gray-600 hover:bg-gray-100 text-xs font-bold px-5 py-2.5 rounded-full transition shadow-sm">Languages</button>
       <button onclick="filterCourses('Short Courses')" class="filter-btn bg-white text-gray-600 hover:bg-gray-100 text-xs font-bold px-5 py-2.5 rounded-full transition shadow-sm">Short Courses</button>
+      <button onclick="filterCourses('Trainings & Sessions')" class="filter-btn bg-white text-gray-600 hover:bg-gray-100 text-xs font-bold px-5 py-2.5 rounded-full transition shadow-sm">Trainings & Sessions</button>
+      <button onclick="filterCourses('Ramdan Gifts')" class="filter-btn ramzan-filter-btn text-xs font-bold px-5 py-2.5 rounded-full transition shadow-sm">Ramzan Gifts</button>
     </div>
 
     <!-- Courses Grid -->
@@ -73,10 +74,11 @@
       const grid = document.getElementById("coursesGrid");
       if (!grid) return;
       grid.innerHTML = data.map(c => `
-        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 card-hover flex flex-col justify-between">
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 card-hover flex flex-col justify-between ${c.category === 'Ramdan Gifts' ? 'ramzan-course-card' : ''}">
           <div>
+            ${c.category === 'Ramdan Gifts' ? '<div class="ramzan-diamond" aria-label="Ramzan Gifts premium course">&#9670;</div>' : ''}
             <div class="flex justify-between items-center mb-4">
-              <span class="text-xs font-black text-[#5CACC4] tracking-wider uppercase">${c.courseID}</span>
+              <span class="text-xs font-black ${c.category === 'Ramdan Gifts' ? 'ramzan-course-id' : 'text-[#5CACC4]'} tracking-wider uppercase">${c.courseID}</span>
               <span class="text-xs bg-[#E6F4F8] text-[#2C5D6C] font-bold px-3 py-1 rounded-full">${c.mode}</span>
             </div>
             <h3 class="font-extrabold text-lg text-[#1C2A33] mb-2 leading-snug">${c.name}</h3>
@@ -93,6 +95,9 @@
                 <span class="font-semibold">${c.time}</span>
               </div>
             </div>
+            <a href="assets/eligibility.pdf" target="_blank" rel="noopener noreferrer" class="block text-center text-xs font-bold ${c.category === 'Ramdan Gifts' ? 'ramzan-eligibility-link' : 'text-[#2C5D6C] hover:text-[#5CACC4]'} mb-4 transition-colors">
+              Check Eligibility
+            </a>
             <button onclick="openApplyModal('${c.courseID}')" class="w-full bg-[#2C5D6C] hover:bg-slate-800 text-white font-bold py-3 rounded-xl text-xs transition shadow-sm">
               Apply For This Course
             </button>
