@@ -58,7 +58,7 @@ const coursesData = [
     name: "Tarteel-Ul-Quran",
     duration: "1 Year",
     time: "04:00 PM - 06:00 PM",
-    mode: "Online",
+    mode: "On Campus",
     category: "Short Courses",
     description: "essential foundational course focused on teaching fluent Quranic reading paired with core Tajweed principles for accurate recitation."
   },
