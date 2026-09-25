@@ -208,6 +208,13 @@ const modalHTML = `
 
 // DOM Initialization
 document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.getElementById("siteLoader");
+  if (loader) {
+    window.setTimeout(() => {
+      loader.classList.add("hidden-loader");
+    }, 600);
+  }
+
   document.getElementById("header-mount").innerHTML = headerHTML;
   document.getElementById("footer-mount").innerHTML = footerHTML;
   document.getElementById("modal-mount").innerHTML = modalHTML;
@@ -215,6 +222,8 @@ document.addEventListener("DOMContentLoaded", () => {
   populateModalCourses();
   setDateOfBirthLimit();
   highlightActiveNav();
+  attachRevealAnimations();
+  initScrollTopButton();
 });
 
 function setDateOfBirthLimit() {
@@ -263,6 +272,34 @@ function closeApplyModal() {
 
 function toggleMobileMenu() {
   document.getElementById("mobileMenu")?.classList.toggle("hidden");
+}
+
+function attachRevealAnimations() {
+  const revealItems = document.querySelectorAll('.reveal');
+  revealItems.forEach((el, index) => {
+    setTimeout(() => {
+      el.classList.add('visible');
+    }, 120 * index);
+  });
+}
+
+function initScrollTopButton() {
+  const btn = document.getElementById('scrollTopBtn');
+  if (!btn) return;
+
+  const toggleButton = () => {
+    if (window.scrollY > 220) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  };
+
+  toggleButton();
+  window.addEventListener('scroll', toggleButton, { passive: true });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }
 
 // Validation Helper Functions

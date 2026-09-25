@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading | Institute of Islamic Education</title>
+  <meta name="description" content="Loading page for the Institute of Islamic Education website.">
+  <link rel="canonical" href="https://www.instofislamicedu.online/loading.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: radial-gradient(circle at top, rgba(92,172,196,0.12), rgba(230,244,248,1) 40%, rgba(255,255,255,1) 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .loader-ring {
+      width: 92px;
+      height: 92px;
+      border: 4px solid rgba(44,93,108,0.12);
+      border-top-color: #2C5D6C;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      position: relative;
+    }
+    .loader-dot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      background: linear-gradient(135deg, #5CACC4, #2C5D6C);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%, 100% { transform: scale(0.8); opacity: 0.8; } 50% { transform: scale(1.2); opacity: 1; } }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center px-6">
+  <div class="text-center max-w-lg">
+    <div class="relative inline-flex items-center justify-center mb-8">
+      <div class="loader-ring"></div>
+      <div class="loader-dot"></div>
+    </div>
+    <span class="status-badge">Loading</span>
+    <h1 class="mt-6 text-3xl md:text-4xl font-black text-[#2C5D6C]">Preparing your learning experience</h1>
+    <p class="mt-4 text-sm md:text-base text-gray-600">Please wait while we prepare the Institute of Islamic Education experience for you.</p>
+    <a href="index.html" class="inline-flex mt-8 bg-[#2C5D6C] hover:bg-slate-800 text-white font-bold px-7 py-3 rounded-full transition shadow-lg">Back to Home</a>
+  </div>
+</body>
+</html>
